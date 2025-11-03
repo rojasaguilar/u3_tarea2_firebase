@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "6712210851",
+    "firebase_url": "https://flutter-app-2baca-default-rtdb.firebaseio.com",
+    "project_id": "flutter-app-2baca",
+    "storage_bucket": "flutter-app-2baca.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6712210851:android:5c87d2a2f40a02dd565616",
+        "android_client_info": {
+          "package_name": "com.example.u3_tarea2_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2uNb0a7L9O7YO3-caiYqLqv5Y2b8Ktj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
