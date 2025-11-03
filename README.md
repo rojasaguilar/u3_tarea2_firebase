@@ -4,13 +4,32 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Generar app en firebase
+2. Configurar archivos base de firebase en Proyecto android
+3. Descargar core .pub de firebase y depues las demas apps que queramos utilizar https://firebase.flutter.dev/
+4. Agregar estas lineas a main
+   WidgetsFlutterBinding.ensureInitialized();
+5. En el state, agregar:
+```dart
+class _MyHomePageState extends State<MyHomePage> {
+   final Future<FirebaseApp> _fApp = Firebase.initializeApp();
+   @override
+   Widget build(BuildContext context) {
+         return Scaffold(
+         appBar: AppBar(
+         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+           title: Text(widget.title),
+         ),
+         body: FutureBuilder(future: _fApp, builder: (context, snapshot){
+              if(snapshot.hasError){
+                return Text("Somethings bad with firebase");
+              }else if(snapshot.hasData){
+                return Text("Firebase initialized");
+              }else{
+                  return CircularProgressIndicator();
+              }
+            })
+         );
+      }
+   }
+```
