@@ -13,23 +13,24 @@ A new Flutter project.
 ```dart
 class _MyHomePageState extends State<MyHomePage> {
    final Future<FirebaseApp> _fApp = Firebase.initializeApp();
+   String realTimeValue = "0";
+   String getOnceValue = "0";
    @override
    Widget build(BuildContext context) {
-         return Scaffold(
-         appBar: AppBar(
-         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-           title: Text(widget.title),
-         ),
-         body: FutureBuilder(future: _fApp, builder: (context, snapshot){
-              if(snapshot.hasError){
-                return Text("Somethings bad with firebase");
-              }else if(snapshot.hasData){
-                return Text("Firebase initialized");
-              }else{
-                  return CircularProgressIndicator();
-              }
-            })
-         );
-      }
-   }
+      return Scaffold(
+              appBar: AppBar(
+                 backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+                 title: Text(widget.title),
+              ),
+              body: FutureBuilder(future: _fApp, builder: (context, snapshot){
+                 if(snapshot.hasError){
+                    return Text("Somethings bad with firebase");
+                 }else if(snapshot.hasData){
+                    return content();
+                 }else{
+                    return CircularProgressIndicator();
+                 }
+              })
+      );
+   }}
 ```
