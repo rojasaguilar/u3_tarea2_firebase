@@ -111,6 +111,23 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
+          SizedBox(height: 10),
+          GestureDetector(
+            onTap: () async {
+              await _testRef.remove();
+            },
+            child: Container(
+              height: 50,
+              width: 150,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Center(
+                child: Text("Eliminar par", style: TextStyle(fontSize: 20)),
+              ),
+            ),
+          ),
         ],
       ),
     );
